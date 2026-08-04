@@ -22,43 +22,28 @@
       "interests": ["Sea Surface Temperature Estimation", "Satellite Image Processing"]
     },
     {
-      "name": "Yungyo Im",
-      "title": "Researcher",
-      "email": "dbsry129@pukyong.ac.kr",
-      "photo": "member/증명사진/임윤교.jpg",
-      "interests": ["AI-based Feature Matching", "AI-based Image Process(CV)"]
-    },
-    {
-      "name": "Riwon Kim",
-      "title": "Researcher",
-      "email": "rxwxnee@gmail.com",
-      "photo": "member/증명사진/김리원.jpg",
-      "interests": ["TBD"]
-    },
-    {
-      "name": "Jiah Jang",
-      "title": "Researcher",
-      "email": "jangjiah12@gmail.com",
-      "photo": "member/증명사진/장지아.jpg",
-      "interests": ["TBD"]
-    },
-    {
-      "name": "Jaeung Sim",
-      "title": "Researcher",
-      "email": "tlawodnd1325@naver.com",
-      "photo": "member/증명사진/심재웅.jpg",
-      "interests": ["Vision-Language Model", "Computer Vision"],
-      "github": "https://github.com/simjw0223?tab=repositories"
-    }
-  ],
-  "phd_students": [
-    {
       "name": "Youjeong Youn",
-      "title": "Ph.D. Candidate",
+      "title": "Researcher",
       "email": "dbwjd0757@pukyong.ac.kr",
       "photo": "member/증명사진/윤유정.png",
       "interests": ["Advanced AI for Geospatial Data Integrity", "AI-based Modeling for Environmental Prediction"],
       "cv": "member/CV/윤유정_CV.pdf"
+    },
+    {
+      "name": "HyoJu Park",
+      "title": "Researcher",
+      "email": "gywn_1230@pukyong.ac.kr",
+      "photo": "member/증명사진/박효주.jpg",
+      "interests": ["TBD"]
+    }
+  ],
+  "phd_students": [
+    {
+      "name": "Yungyo Im",
+      "title": "Ph.D. Candidate",
+      "email": "dbsry129@pukyong.ac.kr",
+      "photo": "member/증명사진/임윤교.jpg",
+      "interests": ["AI-based Feature Matching", "AI-based Image Process(CV)"]
     },
     {
       "name": "Jonggu Kang",
@@ -99,36 +84,28 @@
   ],
   "masters_students": [
     {
-      "name": "HyoJu Park",
-      "title": "Master's Candidate",
-      "email": "gywn_1230@pukyong.ac.kr",
-      "photo": "member/증명사진/박효주.jpg",
-      "interests": ["TBD"]
-    },
-    {
       "name": "JaeSeong Park",
       "title": "Master's Candidate",
       "email": "js513jj@naver.com",
       "photo": "member/증명사진/박재성.jpg",
       "interests": ["SAR-EO Data Fusion"]
-    }
-  ],
-  "undergrad_students": [
+    },
     {
       "name": "DongWoo Ha",
-      "title": "",
+      "title": "Master's Candidate",
       "email": "hdw0415@pukyong.ac.kr",
       "photo": null,
       "interests": ["TBD"]
     },
     {
       "name": "Suji Lee",
-      "title": "",
+      "title": "Master's Candidate",
       "email": "suzii@pukyong.ac.kr",
       "photo": null,
       "interests": ["TBD"]
     }
   ],
+  "undergrad_students": [],
   "alumni": {
     "phd": [
       "김나리(2018), 국립부경대학교",
@@ -149,7 +126,10 @@
       "윤예슬(2020), 나라스페이스테크놀로지",
       "조수빈(2022), 나라스페이스테크놀로지",
       "박강현(2024), 한국항공우주연구원",
-      "서영민(2025), 우주항공청"
+      "서영민(2025), 우주항공청",
+      "김리원(2026), KIOST",
+      "장지아(2026), 농업위성센터",
+      "심재웅(2026), STEMCO"
     ]
   }
 }

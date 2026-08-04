@@ -39,13 +39,6 @@
   ],
   "phd_students": [
     {
-      "name": "Yungyo Im",
-      "title": "Ph.D. Candidate",
-      "email": "dbsry129@pukyong.ac.kr",
-      "photo": "member/증명사진/임윤교.jpg",
-      "interests": ["AI-based Feature Matching", "AI-based Image Process(CV)"]
-    },
-    {
       "name": "Jonggu Kang",
       "title": "Integrated Ph.D. Candidate",
       "email": "gu7529@pukyong.ac.kr",
@@ -80,6 +73,13 @@
       "email": "unggungqe@gmail.com",
       "photo": "member/증명사진/최소연.jpg",
       "interests": ["Synthetic Aperture Radar (SAR) Image Processing", "AI-based Remote Sensing"]
+    },
+    {
+      "name": "Yungyo Im",
+      "title": "Ph.D. Candidate",
+      "email": "dbsry129@pukyong.ac.kr",
+      "photo": "member/증명사진/임윤교.jpg",
+      "interests": ["AI-based Feature Matching", "AI-based Image Process(CV)"]
     }
   ],
   "masters_students": [
@@ -127,7 +127,7 @@
       "조수빈(2022), 나라스페이스테크놀로지",
       "박강현(2024), 한국항공우주연구원",
       "서영민(2025), 우주항공청",
-      "김리원(2026), KIOST",
+      "김리원(2026), 한국해양과학기술원",
       "장지아(2026), 농업위성센터",
       "심재웅(2026), STEMCO"
     ]

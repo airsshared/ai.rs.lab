@@ -1,187 +1,462 @@
 # 📚 Publications 추가/수정 가이드
 
 ## 📌 개요
-`publications.html` 파일은 연구실의 논문(Journal)과 특허(Patent) 정보를 관리합니다.
-이 가이드를 따라 새로운 논문이나 특허를 쉽게 추가하실 수 있습니다.
+`6.html` (Publications 페이지)는 **JSON 파일 기반**으로 동작합니다.
+논문(Journal)과 특허(Patent) 추가/수정은 JSON 파일만 수정하면 됩니다!
 
 ---
 
-## 📝 Journal (논문) 추가하기
+## ✅ 장점
+- ✨ **간단한 수정**: HTML 태그 없이 JSON만 수정
+- 🎯 **에러 최소화**: 구조화된 데이터로 실수 방지
+- 🔄 **일관성 유지**: 모든 항목이 동일한 디자인
+- 📝 **가독성 향상**: 데이터가 깔끔하게 정리됨
+- 🔍 **자동 정렬**: 연도별로 자동 정렬됨
 
-### 1단계: publications.html 파일 열기
-`publications.html` 파일을 에디터로 엽니다.
+---
 
-### 2단계: International vs Domestic 선택
-- **International Journal**: `<!-- ==================== International Journal 탭 내용 ==================== -->` 섹션
-- **Domestic Journal**: `<!-- ==================== Domestic Journal 탭 내용 ==================== -->` 섹션
+## 📂 파일 구조
 
-### 3단계: 연도 섹션 찾기 또는 추가하기
+```
+publications/
+  international.json    ← 국제 논문 데이터 (여기만 수정!)
+  domestic.json         ← 국내 논문 데이터 (여기만 수정!)
+  patent.json           ← 특허 데이터 (여기만 수정!)
 
-#### 기존 연도가 있는 경우
-해당 연도의 `<div class="space-y-3">` 내부에 새 논문을 추가합니다.
-
-#### 새로운 연도 추가하는 경우
-```html
-<!-- ==================== 2026년 논문 ==================== -->
-<div>
-  <h3 class="text-4xl font-bold mb-6 text-accent">2026</h3>
-  <div class="space-y-3">
-    
-    <!-- 여기에 논문 아이템 추가 -->
-    
-  </div>
-</div>
+6.html                  ← 웹페이지 (수정 금지)
 ```
 
-### 4단계: 논문 아이템 추가하기
+---
+
+## 📝 International Journal (국제 논문) 추가하기
+
+### 1단계: JSON 파일 열기
+`publications/international.json` 파일을 에디터로 엽니다.
+
+### 2단계: 논문 데이터 추가
 
 다음 템플릿을 복사해서 정보를 채워넣으세요:
 
-```html
-<!-- ========== Paper 번호 ========== -->
-<div class="paper-item pb-3 border-b border-gray-200 dark:border-gray-700 relative">
-  <div class="flex items-start gap-4">
-    <span class="text-base font-bold text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1">번호</span>
-    <div class="flex-grow w-full">
-      <h4 class="text-lg font-bold text-primary-dark dark:text-white mb-2 w-full break-words">논문 제목</h4>
-      <p class="text-sm text-gray-600 dark:text-gray-400"><i>저널명</i>, 연도</p>
-    </div>
-  </div>
-  <a href="https://doi.org/논문DOI주소" class="absolute bottom-2 right-0 flex items-center gap-1 text-accent hover:text-blue-700 transition-colors text-sm font-medium" target="_blank">
-    <span class="material-symbols-outlined text-base">link</span>
-    Link
-  </a>
-</div>
+```json
+{
+  "id": 60,
+  "title": "논문 제목 (영문)",
+  "journal": "저널명",
+  "year": 2025,
+  "link": "https://doi.org/10.xxxx/xxxxx"
+}
 ```
 
-### 5단계: 정보 입력하기
-- **번호**: 논문 일련번호 (예: 58)
-- **논문 제목**: 영문 논문 제목
-- **저널명**: 학술지 이름 (이탤릭체로 표시됨)
-- **연도**: 출판 연도
-- **DOI 주소**: 논문의 DOI 링크 (예: https://doi.org/10.1007/s12303-025-00049-w)
+#### 📋 각 필드 설명
 
-### 📋 예시
+| 필드 | 필수 | 설명 | 예시 |
+|------|------|------|------|
+| `id` | ✅ | 논문 일련번호 (최신 논문이 가장 큰 번호) | `60` |
+| `title` | ✅ | 논문 제목 (영문) | `"AI-Based Time-Series Ensemble Approach..."` |
+| `journal` | ✅ | 저널명 | `"water"`, `"Remote Sensing"` |
+| `year` | ✅ | 출판 연도 | `2025` |
+| `link` | ❌ | DOI 링크 (없으면 `null` 또는 제거) | `"https://doi.org/10.3390/w17223296"` |
 
-```html
-<!-- ========== Paper 59 ========== -->
-<div class="paper-item pb-3 border-b border-gray-200 dark:border-gray-700 relative">
-  <div class="flex items-start gap-4">
-    <span class="text-base font-bold text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1">59</span>
-    <div class="flex-grow w-full">
-      <h4 class="text-lg font-bold text-primary-dark dark:text-white mb-2 w-full break-words">Deep Learning for Satellite Image Analysis</h4>
-      <p class="text-sm text-gray-600 dark:text-gray-400"><i>Remote Sensing</i>, 2025</p>
-    </div>
-  </div>
-  <a href="https://doi.org/10.3390/rs13010001" class="absolute bottom-2 right-0 flex items-center gap-1 text-accent hover:text-blue-700 transition-colors text-sm font-medium" target="_blank">
-    <span class="material-symbols-outlined text-base">link</span>
-    Link
-  </a>
-</div>
+### 3단계: 올바른 위치에 추가하기
+
+**⚠️ 중요**: JSON 문법을 정확히 지켜야 합니다!
+
+#### ✅ 올바른 예시 (배열 맨 앞에 추가)
+
+```json
+[
+  {
+    "id": 60,
+    "title": "New Paper Title",
+    "journal": "Journal Name",
+    "year": 2025,
+    "link": "https://doi.org/10.xxxx/xxxxx"
+  },
+  {
+    "id": 59,
+    "title": "Existing Paper Title",
+    ...
+  }
+]
+```
+
+**주의**: 
+- 가장 최신 논문이 배열의 **맨 위**에 위치합니다
+- 각 객체 사이에는 쉼표(`,`)가 필요합니다
+- 마지막 항목에는 쉼표를 붙이지 않습니다
+
+### 📋 완전한 예시
+
+```json
+[
+  {
+    "id": 60,
+    "title": "Deep Learning for Satellite Image Analysis",
+    "journal": "Remote Sensing",
+    "year": 2025,
+    "link": "https://doi.org/10.3390/rs13010001"
+  },
+  {
+    "id": 59,
+    "title": "AI-Based Time-Series Ensemble Approach Coupled with a Hydrological Model for Reservoir Storage Prediction in Korea",
+    "journal": "water",
+    "year": 2025,
+    "link": "https://doi.org/10.3390/w17223296"
+  }
+]
+```
+
+---
+
+## 📝 Domestic Journal (국내 논문) 추가하기
+
+### 1단계: JSON 파일 열기
+`publications/domestic.json` 파일을 에디터로 엽니다.
+
+### 2단계: 논문 데이터 추가
+
+다음 템플릿을 복사해서 정보를 채워넣으세요:
+
+```json
+{
+  "id": 136,
+  "title": "논문 제목 (한글 또는 영문)",
+  "info": "저널명 권(호), 페이지, 월 2025",
+  "year": 2025,
+  "link": "https://doi.org/10.xxxx/xxxxx"
+}
+```
+
+#### 📋 각 필드 설명
+
+| 필드 | 필수 | 설명 | 예시 |
+|------|------|------|------|
+| `id` | ✅ | 논문 일련번호 (최신 논문이 가장 큰 번호) | `136` |
+| `title` | ✅ | 논문 제목 (한글 또는 영문) | `"Sentinel-2 영상과 기상모델 자료를 이용한..."` |
+| `info` | ✅ | 저널 정보 (권, 호, 페이지, 월) | `"기후연구 20(3), 143-163, Sep 2025"` |
+| `year` | ✅ | 출판 연도 | `2025` |
+| `link` | ❌ | DOI 링크 (없으면 `null` 또는 제거) | `"https://doi.org/10.14383/cri.2025.20.3.143"` |
+
+### 3단계: 올바른 위치에 추가하기
+
+**⚠️ 중요**: JSON 문법을 정확히 지켜야 합니다!
+
+#### ✅ 올바른 예시 (배열 맨 앞에 추가)
+
+```json
+[
+  {
+    "id": 136,
+    "title": "새로운 논문 제목",
+    "info": "저널명 20(3), 143-163, Sep 2025",
+    "year": 2025,
+    "link": "https://doi.org/10.xxxx/xxxxx"
+  },
+  {
+    "id": 135,
+    "title": "기존 논문 제목",
+    ...
+  }
+]
+```
+
+### 📋 완전한 예시
+
+```json
+[
+  {
+    "id": 136,
+    "title": "딥러닝 기반 위성영상 분석",
+    "info": "대한원격탐사학회지 41(2), 100-120, Mar 2025",
+    "year": 2025,
+    "link": "https://doi.org/10.7780/kjrs.2025.41.2.1.1"
+  },
+  {
+    "id": 135,
+    "title": "Sentinel-2 영상과 기상모델 자료를 이용한 기계학습 기반의 벼논 토양염분 추정",
+    "info": "기후연구 20(3), 143-163, Sep 2025",
+    "year": 2025,
+    "link": "https://doi.org/10.14383/cri.2025.20.3.143"
+  }
+]
 ```
 
 ---
 
 ## 🔬 Patent (특허) 추가하기
 
-### 1단계: Patent 섹션 찾기
-`<!-- ==================== Patent 섹션 ==================== -->` 부분으로 이동합니다.
+### 1단계: JSON 파일 열기
+`publications/patent.json` 파일을 에디터로 엽니다.
 
-### 2단계: 연도 섹션 찾기 또는 추가하기
-
-#### 기존 연도가 있는 경우
-해당 연도의 `<div class="space-y-3">` 내부에 새 특허를 추가합니다.
-
-#### 새로운 연도 추가하는 경우
-```html
-<!-- ==================== 2025년 특허 ==================== -->
-<div>
-  <h3 class="text-4xl font-bold mb-6 text-accent">2025</h3>
-  <div class="space-y-3">
-    
-    <!-- 여기에 특허 아이템 추가 -->
-    
-  </div>
-</div>
-```
-
-### 3단계: 특허 아이템 추가하기
+### 2단계: 특허 데이터 추가
 
 다음 템플릿을 복사해서 정보를 채워넣으세요:
 
-```html
-<!-- ========== Patent 번호 ========== -->
-<div class="pb-3 border-b border-gray-200 dark:border-gray-700">
-  <div class="flex items-start gap-4">
-    <span class="text-base font-bold text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1">번호</span>
-    <div class="flex-grow w-full">
-      <h4 class="text-lg font-bold text-primary-dark dark:text-white mb-2 w-full break-words">특허명</h4>
-      <p class="text-sm text-gray-600 dark:text-gray-400">등록번호: 특허등록번호</p>
-    </div>
-  </div>
-</div>
+```json
+{
+  "id": 4,
+  "title": "특허명",
+  "reg_num": "10-1234567",
+  "year": 2025
+}
 ```
 
-### 4단계: 정보 입력하기
-- **번호**: 특허 일련번호 (예: 4)
-- **특허명**: 특허 이름 (한글 또는 영문)
-- **특허등록번호**: 등록번호 (예: 10-1767568)
+#### 📋 각 필드 설명
 
-### 📋 예시
+| 필드 | 필수 | 설명 | 예시 |
+|------|------|------|------|
+| `id` | ✅ | 특허 일련번호 (최신 특허가 가장 큰 번호) | `4` |
+| `title` | ✅ | 특허명 (한글 또는 영문) | `"인공지능 기반 위성영상 분석 시스템"` |
+| `reg_num` | ✅ | 특허 등록번호 | `"10-1767568"` |
+| `year` | ✅ | 등록 연도 | `2025` |
 
-```html
-<!-- ========== Patent 4 ========== -->
-<div class="pb-3 border-b border-gray-200 dark:border-gray-700">
-  <div class="flex items-start gap-4">
-    <span class="text-base font-bold text-gray-400 dark:text-gray-500 flex-shrink-0 mt-1">4</span>
-    <div class="flex-grow w-full">
-      <h4 class="text-lg font-bold text-primary-dark dark:text-white mb-2 w-full break-words">인공지능 기반 위성영상 분석 시스템</h4>
-      <p class="text-sm text-gray-600 dark:text-gray-400">등록번호: 10-2345678</p>
-    </div>
-  </div>
-</div>
+### 3단계: 올바른 위치에 추가하기
+
+**⚠️ 중요**: JSON 문법을 정확히 지켜야 합니다!
+
+#### ✅ 올바른 예시 (배열 맨 앞에 추가)
+
+```json
+[
+  {
+    "id": 4,
+    "title": "새로운 특허명",
+    "reg_num": "10-2345678",
+    "year": 2025
+  },
+  {
+    "id": 3,
+    "title": "기존 특허명",
+    ...
+  }
+]
+```
+
+### 📋 완전한 예시
+
+```json
+[
+  {
+    "id": 4,
+    "title": "인공지능 기반 위성영상 분석 시스템",
+    "reg_num": "10-2345678",
+    "year": 2025
+  },
+  {
+    "id": 3,
+    "title": "개방형 공간정보 관리시스템",
+    "reg_num": "10-1767568",
+    "year": 2017
+  }
+]
 ```
 
 ---
 
-## ⚠️ 주의사항
+## 🔄 논문/특허 정보 수정하기
 
-1. **논문/특허 번호는 최신순으로 증가**합니다 (가장 최근 논문이 가장 큰 번호)
-2. **연도 섹션은 내림차순**으로 정렬됩니다 (최신 연도가 위쪽)
-3. **HTML 구조를 정확히 유지**해주세요 (들여쓰기, 닫는 태그 등)
-4. **DOI 링크가 없는 경우** `<a>` 태그 전체를 삭제하면 됩니다
-5. **특수문자**는 HTML 엔티티로 변환해야 할 수 있습니다
-   - `&` → `&amp;`
-   - `<` → `&lt;`
-   - `>` → `&gt;`
+### 1단계: JSON 파일에서 수정할 항목 찾기
+`publications/international.json`, `domestic.json`, 또는 `patent.json`에서 수정할 항목의 `id`로 검색합니다.
 
----
+### 2단계: 원하는 필드 수정
 
-## 🔍 추가 정보 위치
+```json
+{
+  "id": 59,
+  "title": "수정된 논문 제목",  // ← 제목 수정
+  "journal": "수정된 저널명",    // ← 저널명 수정
+  "year": 2025,
+  "link": "https://doi.org/새로운링크"  // ← 링크 수정
+}
+```
 
-### International Journal 섹션
-- **위치**: Line ~700 근처
-- **섹션 시작**: `<!-- ==================== International Journal 탭 내용 ==================== -->`
-
-### Domestic Journal 섹션
-- **위치**: International Journal 섹션 아래
-- **섹션 시작**: `<!-- ==================== Domestic Journal 탭 내용 ==================== -->`
-
-### Patent 섹션
-- **위치**: Line ~3654 근처
-- **섹션 시작**: `<!-- ==================== Patent 섹션 ==================== -->`
+### 3단계: 저장 후 브라우저 새로고침
 
 ---
 
-## ✅ 수정 후 확인사항
+## ❌ 논문/특허 삭제하기
 
-1. ✅ 브라우저에서 `publications.html` 페이지 열기
-2. ✅ Journal 탭에서 새 논문이 올바르게 표시되는지 확인
-3. ✅ Patent 탭에서 새 특허가 올바르게 표시되는지 확인
-4. ✅ 링크 클릭 시 올바른 페이지로 이동하는지 확인
-5. ✅ 다크 모드에서도 정상 표시되는지 확인
+### 1단계: JSON 파일에서 삭제할 항목 찾기
+
+### 2단계: 해당 항목의 전체 블록 삭제
+
+```json
+[
+  {
+    "id": 60,
+    "title": "유지할 논문",
+    ...
+  },
+  // ← 여기서부터
+  {
+    "id": 59,
+    "title": "삭제할 논문",
+    ...
+  },
+  // ← 여기까지 삭제
+  {
+    "id": 58,
+    "title": "유지할 논문",
+    ...
+  }
+]
+```
+
+**⚠️ 주의**: 삭제 후 쉼표(`,`)가 올바르게 유지되는지 확인하세요!
 
 ---
 
-**문제가 발생하면 주석(`<!-- -->`)을 확인하여 올바른 섹션에 추가했는지 확인하세요!**
+## ⚠️ JSON 문법 주의사항
 
+### ✅ DO (올바른 사용)
+
+```json
+{
+  "id": 60,
+  "title": "Paper Title",
+  "journal": "Journal Name",
+  "year": 2025,
+  "link": "https://doi.org/10.xxxx/xxxxx"
+}
+```
+
+### ❌ DON'T (잘못된 사용)
+
+#### 1. 마지막 항목에 쉼표 사용
+```json
+[
+  {
+    "id": 60,
+    "title": "Paper",
+    "year": 2025  // ← 마지막에 쉼표 금지!
+  }
+]
+```
+
+#### 2. 쌍따옴표 빠뜨림
+```json
+{
+  id: 60,  // ❌ 키는 반드시 쌍따옴표로!
+  "title": Paper Title  // ❌ 값도 쌍따옴표로!
+}
+```
+
+#### 3. 숫자에 따옴표 사용
+```json
+{
+  "id": "60",  // ❌ 숫자는 따옴표 없이!
+  "year": "2025"  // ❌ 숫자는 따옴표 없이!
+}
+```
+
+**올바른 사용:**
+```json
+{
+  "id": 60,  // ✅
+  "year": 2025  // ✅
+}
+```
+
+#### 4. 링크가 없는 경우
+```json
+{
+  "id": 60,
+  "title": "Paper",
+  "link": null  // ✅ null 사용 또는 필드 제거
+}
+```
+
+또는
+
+```json
+{
+  "id": 60,
+  "title": "Paper"
+  // link 필드 자체를 제거
+}
+```
+
+---
+
+## 🧪 테스트 방법
+
+### 1단계: JSON 유효성 검사
+- [JSONLint](https://jsonlint.com/)에서 JSON 파일 내용을 붙여넣어 문법 오류 확인
+- 또는 VS Code에서 JSON 파일을 열면 자동으로 문법 검사
+
+### 2단계: 브라우저에서 확인
+1. `6.html` 페이지를 엽니다
+2. 브라우저 개발자 도구(F12)를 엽니다
+3. Console 탭에서 에러 메시지 확인
+4. Journal 탭과 Patent 탭을 클릭하여 정상 작동 확인
+5. 페이지네이션이 올바르게 작동하는지 확인
+
+### 3단계: 새로고침
+변경사항이 반영되지 않으면 **Ctrl + Shift + R** (강력 새로고침)
+
+---
+
+## 🆘 문제 해결
+
+### 논문이 표시되지 않아요
+1. ✅ JSON 파일 경로가 올바른지 확인
+2. ✅ JSON 문법 오류 확인 (JSONLint 사용)
+3. ✅ 브라우저 콘솔에서 에러 메시지 확인
+4. ✅ `id` 번호가 중복되지 않았는지 확인
+
+### 링크가 작동하지 않아요
+1. ✅ `link` 필드의 URL이 올바른지 확인
+2. ✅ `https://` 또는 `http://`로 시작하는지 확인
+3. ✅ 따옴표가 올바르게 닫혔는지 확인
+
+### 연도별 정렬이 안 돼요
+1. ✅ `year` 필드가 숫자로 입력되었는지 확인 (문자열 아님)
+2. ✅ 브라우저 캐시 삭제 후 새로고침
+
+### JSON 저장 후에도 변경사항이 안 보여요
+1. ✅ **Ctrl + Shift + R** (강력 새로고침)
+2. ✅ 브라우저 캐시 삭제
+3. ✅ JSON 파일이 올바르게 저장되었는지 확인
+4. ✅ 파일 인코딩이 UTF-8인지 확인
+
+---
+
+## 💡 팁
+
+### 논문 순서 변경하기
+JSON 배열에서 항목의 순서를 바꾸면 페이지에서도 순서가 바뀝니다.
+- 가장 최신 논문이 배열의 **맨 위**에 위치합니다
+- 연도별로 자동 정렬되지만, 같은 연도 내에서는 배열 순서대로 표시됩니다
+
+### 여러 논문 한 번에 추가하기
+JSON 파일에서 배열 안에 여러 개의 객체를 추가하면 됩니다.
+
+### 백업하기
+수정 전에 JSON 파일을 복사해두세요!
+
+### DOI 링크 찾기
+- 논문이 발표된 저널 웹사이트에서 DOI를 찾을 수 있습니다
+- 보통 `https://doi.org/10.xxxx/xxxxx` 형식입니다
+
+### 저널명 약어 사용
+- 국제 논문의 경우 저널명 약어를 사용할 수 있습니다 (예: `"water"`, `"Remote Sensing"`)
+- 국내 논문의 경우 전체 저널명을 사용합니다
+
+---
+
+## 📋 체크리스트
+
+논문을 추가할 때 확인할 사항:
+
+- [ ] JSON 문법이 올바른가요? (JSONLint로 확인)
+- [ ] `id` 번호가 중복되지 않았나요?
+- [ ] 모든 필수 필드(`id`, `title`, `journal`/`info`, `year`)가 입력되었나요?
+- [ ] `year`가 숫자로 입력되었나요? (문자열 아님)
+- [ ] `link`가 있다면 올바른 URL 형식인가요?
+- [ ] 마지막 항목에 쉼표가 없나요?
+- [ ] 모든 따옴표가 올바르게 닫혔나요?
+- [ ] 브라우저에서 정상적으로 표시되는지 확인했나요?
+
+---
+
+**문제가 발생하면 JSON 파일의 문법 오류를 먼저 확인하세요!**

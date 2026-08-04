@@ -605,6 +605,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
+    
+    // 네비게이션 바에 다시 호버할 때 인라인 스타일 제거하여 드롭다운이 다시 나타나도록
+    if (navbar && dropdown) {
+      navbar.addEventListener('mouseenter', function() {
+        dropdown.style.opacity = '';
+        dropdown.style.visibility = '';
+        dropdown.style.transition = '';
+      });
+    }
   });
 
   // 연구분야 외부 슬라이더 로드 및 초기화

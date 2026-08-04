@@ -1,4 +1,67 @@
 [ {
+  "id": 68,
+  "title": "Automated Machine Learning for High-Resolution Daily and Hourly Methane Emission Mapping for Rice Paddies over South Korea: Integrating MODIS, ERA5-Land, and Soil Data",
+  "journal": "Remote Sensing",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/rs18050753"
+  },
+  {
+  "id": 67,
+  "title": "Deep Learning Style Transfer for Enhanced Smoke Plume Visibility: A Standardized False Color Composite (SFCC) in GEMS Satellite Imagery",
+  "journal": "Remote Sensing",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/rs18030483"
+  },
+  {
+  "id": 66,
+  "title": "A High-Resolution Daily Precipitation Fusion Framework Integrating Radar, Satellite, and NWP Data Using Machine Learning over South Korea",
+  "journal": "Water",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/w18030353"
+  },
+  {
+  "id": 65,
+  "title": "Observation-Based Reconstruction of High-Resolution Daily Temperature Field Using Lapse-Rate Constrained Kriging in Complex Terrain: A Nationwide Dataset for South Korea",
+  "journal": "Atmosphere",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/atmos17020148"
+  },
+  {
+  "id": 64,
+  "title": "Robust Multi-Resolution Satellite Image Registration Using Deep Feature Matching and Super Resolution Techniques",
+  "journal": "Applied Sciences",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/app16021113"
+  },
+  {
+  "id": 63,
+  "title": "A Robust Deep Learning Ensemble Framework for Waterbody Detection Using High-Resolution X-Band SAR Under Data-Constrained Conditions",
+  "journal": "Remote Sensing",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/rs18020301"
+  },
+  {
+  "id": 62,
+  "title": "StyleSPADE: Realistic Image Augmentation for Robust Infrastructure Crack Segmentation via Ensemble Learning",
+  "journal": "Applied Sciences",
+  "year": 2026,
+  "link": "https://doi.org/10.3390/app16020837"
+  },
+  {
+  "id": 61,
+  "title": "Real-Time Production of High-Resolution, Gap-Free, 3-Hourly AOD over South Korea: A Machine Learning Approach Using Model Forecasts, Satellite Products, and Air Quality Data",
+  "journal": "Atmosphere",
+  "year": 2025,
+  "link": "https://doi.org/10.3390/atmos17010019"
+  },
+  {
+  "id": 60,
+  "title": "Multi-Satellite Image Matching and Deep Learning Segmentation for Detection of Daytime Sea Fog Using GK2A AMI and GK2B GOCI-II",
+  "journal": "Remote Sensing",
+  "year": 2025,
+  "link": "https://doi.org/10.3390/rs18010034"
+  },
+  {
   "id": 59,
   "title": "AI-Based Time-Series Ensemble Approach Coupled with a Hydrological Model for Reservoir Storage Prediction in Korea",
   "journal": "water",
